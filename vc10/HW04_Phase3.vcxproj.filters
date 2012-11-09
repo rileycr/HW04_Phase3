@@ -18,12 +18,18 @@
     <ClCompile Include="..\src\HW04_Phase3App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\HW04-rileycr-2\HW04-rileycr-2\HW04App.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="..\src\rileycrStarbucks.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rileycrStarbucks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Starbucks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

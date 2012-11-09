@@ -104,11 +104,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\HW04-rileycr-2\HW04-rileycr-2\HW04App.cpp" />
     <ClCompile Include="..\src\HW04_Phase3App.cpp" />
+    <ClCompile Include="..\src\rileycrStarbucks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\rileycrStarbucks.h" />
+    <ClInclude Include="..\src\Starbucks.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc" />
