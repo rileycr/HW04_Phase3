@@ -18,35 +18,35 @@ public:
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
+	void prepareSettings(Settings *settings);
 
 private:
-	Surface* mySurface_;
 	rileycrStarbucks* dataTree_;
-	static const int kAppWidth = 800;
-	static const int kAppHeight = 600;
-	static const int kTextureSize = 1024;
+	Entry* dataFile_;
+	uint8_t* dataArray_;
+	Color8u locationColor;
+	int windowWidth;
+	int windowHeight;
 };
 
 void HW04_Phase3App::setup(){
-	mySurface_ = new Surface(kTextureSize,kTextureSize,false);
-	uint8_t* dataArray = (*mySurface_).getData();
 
-	Entry* dataFile = new Entry[8000];
+	dataFile_ = new Entry[8000];
 	ifstream in("Starbucks_2006.csv");
 
 	for(int i = 0; i < 7655; i++){
-		getline(in, dataFile[i].identifier, ',');
+		getline(in, dataFile_[i].identifier, ',');
 
-		in >> dataFile[i].x;
+		console() << dataFile_[i].identifier;
+
+		in >> dataFile_[i].x;
 		in.get();
 
-		in >> dataFile[i].y;
+		in >> dataFile_[i].y;
 		in.get();
-
-		cout << dataFile[i].identifier << " " << dataFile[i].x << " " << dataFile[i].y << endl;
 	}
 	dataTree_ = new rileycrStarbucks();
-	dataTree_ -> build(dataFile, 7655);
+	dataTree_ -> build(dataFile_, 7655);
 }
 
 void HW04_Phase3App::mouseDown( MouseEvent event ){
@@ -58,8 +58,19 @@ void HW04_Phase3App::update(){
 }
 
 void HW04_Phase3App::draw(){
+	gl::clear( Color(255,255,255) );
+	gl::color(Color8u(0,0,0));
+	for(int i = 0; i < 7655; i++){
+		gl::drawSolidCircle(Vec2f(dataFile_[i].x*windowWidth, windowHeight - dataFile_[i].y*windowHeight), 4);
+	}
+}
 
-	gl::draw(*mySurface_);
+void HW04_Phase3App::prepareSettings(Settings *settings){
+	windowWidth = 1300;
+	windowHeight = 750;
+	settings -> setWindowPos(7,29);
+	settings -> setWindowSize(windowWidth, windowHeight);
+	
 }
 
 CINDER_APP_BASIC( HW04_Phase3App, RendererGl )

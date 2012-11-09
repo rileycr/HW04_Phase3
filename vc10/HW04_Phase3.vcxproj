@@ -105,10 +105,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\HW04_Phase3App.cpp" />
+    <ClCompile Include="..\src\Node.cpp" />
     <ClCompile Include="..\src\rileycrStarbucks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\Node.h" />
     <ClInclude Include="..\src\rileycrStarbucks.h" />
     <ClInclude Include="..\src\Starbucks.h" />
   </ItemGroup>
@@ -116,8 +118,9 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Desktop\HW04StarterFiles\Census_2000.csv" />
-    <None Include="..\..\..\..\Desktop\HW04StarterFiles\Census_2010.csv" />
+    <None Include="..\resources\Census_2000.csv" />
+    <None Include="..\resources\Census_2010.csv" />
+    <None Include="..\resources\Starbucks_2006.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
