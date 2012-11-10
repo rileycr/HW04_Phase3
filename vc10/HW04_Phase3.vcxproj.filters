@@ -29,13 +29,13 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Node.h">
+    <ClInclude Include="..\include\Starbucks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\rileycrStarbucks.h">
+    <ClInclude Include="..\include\rileycrStarbucks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Starbucks.h">
+    <ClInclude Include="..\include\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -52,6 +52,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\resources\Starbucks_2006.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="usMap.PNG">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="usMap.gif">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

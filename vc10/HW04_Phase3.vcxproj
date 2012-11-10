@@ -109,10 +109,10 @@
     <ClCompile Include="..\src\rileycrStarbucks.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Node.h" />
     <ClInclude Include="..\include\Resources.h" />
-    <ClInclude Include="..\src\Node.h" />
-    <ClInclude Include="..\src\rileycrStarbucks.h" />
-    <ClInclude Include="..\src\Starbucks.h" />
+    <ClInclude Include="..\include\rileycrStarbucks.h" />
+    <ClInclude Include="..\include\Starbucks.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc" />
@@ -121,6 +121,8 @@
     <None Include="..\resources\Census_2000.csv" />
     <None Include="..\resources\Census_2010.csv" />
     <None Include="..\resources\Starbucks_2006.csv" />
+    <None Include="usMap.gif" />
+    <None Include="usMap.PNG" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
