@@ -55,21 +55,21 @@ void HW04_Phase3App::setup(){
 void HW04_Phase3App::mouseDown( MouseEvent event ){
 	Vec2i mouse_location = event.getPos();
 	double scaledXValue = mouse_location.x/(getWindowWidth()*1.065);
-	double scaledYValue = mouse_location.y/(getWindowHeight()*.96);
+	double scaledYValue = (windowHeight - mouse_location.y)/(getWindowHeight()*.96);
 
-	//Entry temp = dataFile_[0];
-	//for(int i=0; i < 7655; i++){
-	//	if(sqrt((dataFile_[i].x-scaledXValue)*(dataFile_[i].x-scaledXValue)+
-	//		(dataFile_[i].y-scaledYValue)*(dataFile_[i].y-scaledYValue))
-	//		< sqrt((temp.x-scaledXValue)*(temp.x-scaledXValue)+
-	//		(temp.y-scaledYValue)*(temp.y-scaledYValue))){
-	//			temp = dataFile_[i];
-	//	}
-	//}
-	//*nearest_ = temp;
-
+	/*	Entry temp = dataFile_[0];
+	for(int i=0; i < 7655; i++){
+	if(sqrt((dataFile_[i].x-scaledXValue)*(dataFile_[i].x-scaledXValue)+
+	(dataFile_[i].y-scaledYValue)*(dataFile_[i].y-scaledYValue))
+	< sqrt((temp.x-scaledXValue)*(temp.x-scaledXValue)+
+	(temp.y-scaledYValue)*(temp.y-scaledYValue))){
+	temp = dataFile_[i];
+	}
+	}
+	*nearest_ = temp;
+	*/
 	nearest_ = dataTree_ -> getNearest(scaledXValue, scaledYValue);
-	console() << nearest_ ->x << endl;
+	console() << nearest_ ->x << nearest_ -> y << endl;
 }
 
 void HW04_Phase3App::update(){
@@ -80,16 +80,14 @@ void HW04_Phase3App::draw(){
 	gl::color( Color(255,255,255));
 	gl::draw( usMap_, getWindowBounds() );
 
-	//gl::color(Color8u(255,255,255));
-
-	if(nearest_ -> x >= 0){
-		gl::drawSolidCircle(Vec2f(nearest_ -> x*getWindowWidth()*1.065, nearest_ -> y*getWindowHeight()*.96), 3);
-	}
 	gl::color(Color8u(0,0,0));
 	for(int i = 0; i < 7655; i++){
 		gl::drawSolidCircle(Vec2f(dataFile_[i].x*(getWindowWidth()*1.065),
 			windowHeight - dataFile_[i].y*(getWindowHeight()*.96)), 1);
 	}
+	if(nearest_ -> x >= 0)
+		gl::drawSolidCircle(Vec2f(nearest_ -> x*(getWindowWidth()*1.065), 
+		windowHeight - nearest_ -> y*(getWindowHeight()*.96)), 5);
 }
 
 void HW04_Phase3App::prepareSettings(Settings *settings){
