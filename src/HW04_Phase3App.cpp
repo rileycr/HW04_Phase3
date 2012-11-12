@@ -74,6 +74,8 @@ void HW04_Phase3App::mouseDown( MouseEvent event ){
 		double scaledXValue = mouse_location.x/(getWindowWidth()*1.065);
 		double scaledYValue = (windowHeight - mouse_location.y)/(getWindowHeight()*.96);
 
+		//Code for searching the data as an array rather than a tree to check accuracy with the
+		//visual feedback.
 		/*	Entry temp = dataFile_[0];
 		for(int i=0; i < 7655; i++){
 		if(sqrt((dataFile_[i].x-scaledXValue)*(dataFile_[i].x-scaledXValue)+
@@ -98,9 +100,11 @@ void HW04_Phase3App::update(){
 }
 
 void HW04_Phase3App::draw(){
+	//Draws the map
 	gl::color( Color(255,255,255));
 	gl::draw( usMap_, getWindowBounds() );
 
+	//Draws the markers of the locations
 	for(int i = 0; i < 7655; i++){
 		markerArray_[i].draw();
 	}
@@ -115,6 +119,7 @@ void HW04_Phase3App::draw(){
 	}
 */
 
+	//Draws the highlighted marker that is nearest to the mouse click
 	if(nearest_ -> x >= 0){
 		gl::color(Color8u(255,255,255));
 		gl::drawSolidCircle(Vec2f(nearest_ -> x*(getWindowWidth()*1.065), 
@@ -126,11 +131,13 @@ void HW04_Phase3App::draw(){
 	}
 }
 
+//This code was used when trying to shade the map with the color of the nearest starbucks
+//it is not used now because I could not get the it to work in the draw() method
 ColorA HW04_Phase3App::nearestColor(int x, int y){
 	Entry* nearest = dataTree_ -> getNearest(x,y);
 	for(int i = 0; i < 7655; i++){
 		if(markerArray_[i].entry_ -> x == x && markerArray_[i].entry_ -> y == y)
-			return ColorA(markerArray_[i].color_.r, markerArray_[i].color_.b, markerArray_[i].color_.g, 100);
+			return ColorA(markerArray_[i].color_.r, markerArray_[i].color_.b, markerArray_[i].color_.g, .5);
 	}
 }
 
