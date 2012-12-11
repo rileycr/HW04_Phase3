@@ -76,19 +76,19 @@ void HW04_Phase3App::mouseDown( MouseEvent event ){
 
 		//Code for searching the data as an array rather than a tree to check accuracy with the
 		//visual feedback.
-		/*	Entry temp = dataFile_[0];
+		Entry temp = dataFile_[0];
 		for(int i=0; i < 7655; i++){
-		if(sqrt((dataFile_[i].x-scaledXValue)*(dataFile_[i].x-scaledXValue)+
-		(dataFile_[i].y-scaledYValue)*(dataFile_[i].y-scaledYValue))
-		< sqrt((temp.x-scaledXValue)*(temp.x-scaledXValue)+
-		(temp.y-scaledYValue)*(temp.y-scaledYValue))){
-		temp = dataFile_[i];
-		}
+			if(sqrt((dataFile_[i].x-scaledXValue)*(dataFile_[i].x-scaledXValue)+
+				(dataFile_[i].y-scaledYValue)*(dataFile_[i].y-scaledYValue))
+				< sqrt((temp.x-scaledXValue)*(temp.x-scaledXValue)+
+				(temp.y-scaledYValue)*(temp.y-scaledYValue))){
+					temp = dataFile_[i];
+			}
 		}
 		*nearest_ = temp;
-		*/
 
-		nearest_ = dataTree_ -> getNearest(scaledXValue, scaledYValue);
+
+		//nearest_ = dataTree_ -> getNearest(scaledXValue, scaledYValue);
 	} else if(event.isRight()){
 		Vec2i zoom_location = event.getPos();
 
